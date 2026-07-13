@@ -1,86 +1,220 @@
-# Cozy Pomodoro Timer
+# 🍅 Cozy Pomodoro Study Timer
 
-A warm, lo-fi Pomodoro study timer built with **vanilla HTML, CSS, and JavaScript** — no frameworks, no build step. Drop it in a browser and go.
+<p align="center">
+  <img src="assets/screenshots/preview.png" alt="Cozy Pomodoro Study Timer" width="700">
+</p>
 
-![tech: HTML5 · CSS3 · Vanilla JS](https://img.shields.io/badge/tech-HTML5%20%C2%B7%20CSS3%20%C2%B7%20Vanilla%20JS-b6784f)
+<p align="center">
+  A minimalist, cozy, and aesthetic Pomodoro timer designed to help you stay focused, build productive study habits, and enjoy your study sessions.
+</p>
 
-## Features
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/Responsive-✔️-success?style=for-the-badge">
+</p>
 
-- **Three modes** — Pomodoro (25m), Short Break (5m), Long Break (15m). Switching modes resets the timer.
-- **Animated SVG progress ring** — hand-rolled, no libraries.
-- **Session counter & statistics** — today's pomodoros, total focus time, longest streak. Persisted in `localStorage` with automatic daily rollover.
-- **Motivational quotes** — 20+ quotes shuffle on each new session.
-- **Background music player** — play/pause and volume slider for a local mp3 in `assets/music/`.
-- **Settings modal** — customise durations and toggle auto-start for breaks and pomodoros.
-- **Dark mode** — remembered across visits, honours `prefers-color-scheme` on first load.
-- **Fully responsive** — desktop, tablet, mobile.
-- **Accessible** — semantic HTML, ARIA labels, visible focus states, keyboard shortcuts, reduced-motion support, focus trap in the modal.
-- **Zero dependencies** — pure ES2020+ JavaScript.
+---
 
-## Quick start
+## ✨ Overview
 
-```bash
-# From this folder — any static server works
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
+The **Cozy Pomodoro Study Timer** is a responsive productivity application inspired by cozy study spaces, lo-fi aesthetics, and modern minimalist design.
 
-Or just double-click `index.html`.
+Whether you're studying, coding, reading, or working, this timer helps you stay focused using the **Pomodoro Technique** while providing a calming and distraction-free interface.
 
-### Adding music
+---
 
-Drop an mp3 into `assets/music/` named `lofi.mp3` (or update the `src` on the `<audio>` element in `index.html`). Nothing crashes if it's missing — the player will show a friendly toast instead.
+## 🎯 Features
 
-## Keyboard shortcuts
+### ⏱️ Focus Timer
 
-| Key       | Action                |
-| --------- | --------------------- |
-| **Space** | Start / pause / resume |
-| **R**     | Reset current session  |
-| **Esc**   | Close the settings modal |
+- 🍅 Pomodoro Sessions (25 minutes)
+- ☕ Short Breaks (5 minutes)
+- 🌙 Long Breaks (15 minutes)
+- Start, Pause, Resume & Reset controls
+- Automatic countdown
 
-## Project structure
+---
 
-```
-timer/
-├── index.html         # Semantic markup
-├── style.css          # Tokens, layout, animations, dark mode, responsive
-├── script.js          # Modular IIFE — Timer, Stats, Settings, Ring, Theme, Music, Modal
+### 📊 Productivity
+
+- Daily Pomodoro counter
+- Total focus time tracker
+- Longest study streak
+- Session history
+- Data saved with Local Storage
+
+---
+
+### ⚙️ Custom Settings
+
+- Customize Pomodoro duration
+- Customize break durations
+- Auto-start breaks
+- Auto-start focus sessions
+- Persistent settings
+
+---
+
+### 🎵 Study Experience
+
+- Background music player
+- Play / Pause controls
+- Volume slider
+- Local audio support
+
+---
+
+### 💬 Motivation
+
+Enjoy a new motivational quote every time a study session begins.
+
+Example:
+
+> *"Small progress is still progress."*
+
+---
+
+### 🌙 Themes
+
+- Light Mode
+- Dark Mode
+- Smooth animated transitions
+- Theme preference saved automatically
+
+---
+
+### 📱 Responsive Design
+
+Designed for:
+
+- 💻 Desktop
+- 📱 Mobile
+- 📟 Tablet
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- SVG Animations
+- Local Storage API
+- HTML Audio API
+
+---
+
+## 📂 Folder Structure
+
+```text
+cozy-pomodoro-timer/
+│
+├── index.html
+├── style.css
+├── script.js
+│
 ├── assets/
-│   ├── music/         # Drop lofi.mp3 here
+│   ├── music/
 │   ├── icons/
 │   ├── backgrounds/
+│   ├── screenshots/
 │   └── fonts/
+│
 └── README.md
 ```
 
-## Code organisation
+---
 
-`script.js` is a single self-invoking module split into clearly labelled sections:
+## 📸 Screenshots
 
-1. **Constants & configuration** — storage keys, mode definitions, defaults.
-2. **Storage** — thin `localStorage` wrapper with graceful fallbacks.
-3. **Quotes** — the 22-quote pool.
-4. **Settings** / **Stats** — persistent state with a small API.
-5. **Ring** — SVG stroke-dashoffset math.
-6. **Toast** — transient status messages.
-7. **Timer** — the core countdown state machine; drift-corrected via wall-clock timestamps.
-8. **Theme** / **Music** / **Modal** / **Keyboard** — UI concerns, each isolated.
+### 🏠 Home
 
-The timer computes remaining time from `Date.now()` deltas rather than accumulating `setInterval` ticks, so long pauses or tab throttling don't cause drift.
+> Add screenshot here
 
-## Design choices
+```
+assets/screenshots/home.png
+```
 
-- **Warm beige & soft brown palette** for the light theme; deep espresso with cream accents for dark.
-- **Rounded cards, soft shadows** — no hard edges anywhere.
-- **Gentle pulse** on the timer display while running (respects `prefers-reduced-motion`).
-- **Cards fade in** on load in a staggered sequence.
-- **Focus ring** uses the accent colour — visible without being loud.
+---
 
-## Browser support
+### 🍅 Focus Session
 
-Any modern evergreen browser (Chrome, Edge, Firefox, Safari). Uses `AudioContext` for the completion chime; falls back silently on older browsers.
+> Add screenshot here
 
-## License
+```
+assets/screenshots/focus.png
+```
 
-MIT.
+---
+
+### 🌙 Dark Mode
+
+> Add screenshot here
+
+```
+assets/screenshots/dark-mode.png
+```
+
+---
+
+### ⚙️ Settings
+
+> Add screenshot here
+
+```
+assets/screenshots/settings.png
+```
+
+---
+
+## 🔮 Future Improvements
+
+- 📅 Calendar Integration
+- 📈 Productivity Analytics
+- ☁️ Cloud Sync
+- 🎧 Spotify Integration
+- 📝 Daily Notes
+- ✅ Task Manager
+- 📚 Study Planner
+- 🏆 Achievement Badges
+- 🔔 Browser Notifications
+- ⌨️ Keyboard Shortcuts
+- 🌍 Multiple Languages
+
+---
+
+## 🎨 Design Inspiration
+
+Inspired by:
+
+- 🍃 Cozy study setups
+- 🎧 Lo-fi study rooms
+- 📓 Notion
+- 📌 Pinterest
+
+---
+
+---
+
+## 👩‍💻 Author
+
+**Jeslyn Miranda**
+
+🎓 Bachelor of Science in Computer Science  
+Rutgers University
+
+GitHub: https://github.com/your-username
+
+LinkedIn: https://linkedin.com/in/your-linkedin
+
+---
+
+<p align="center">
+  🍅 Stay focused, take breaks, and keep growing one Pomodoro at a time.
+</p>
+
+<p align="center">
+  Made with ❤️, lots of coffee ☕, and a passion for building beautiful web applications.
+</p>
